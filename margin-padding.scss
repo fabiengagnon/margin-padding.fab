@@ -1,0 +1,76 @@
+/*
+	
+	margin & padding.fab 0.2
+	
+*/
+
+@function mp_vw($var) {
+	@return #{$var/$container_mw*100}vw;
+}
+@function mp_ratio_vw($var, $ratio) {
+	@return #{$var/$container_mw*100*$ratio}vw;
+}
+
+//PADDING
+@mixin padding($top: $padding, $right: $padding, $bottom: $padding, $left: $padding, $ratio: 2) {
+  padding: mp_vw($top) mp_vw($right) mp_vw($bottom) mp_vw($left);
+  @include max-width(800px) {
+    padding: mp_ratio_vw($top, $ratio) mp_ratio_vw($right, $ratio) mp_ratio_vw($bottom, $ratio) mp_ratio_vw($left, $ratio);
+  }
+}
+@mixin padding-top($var: $padding, $ratio: 2) {
+  padding-top: mp_vw($var);
+  @include max-width(800px) {
+    padding-top: mp_ratio_vw($var, $ratio);
+  }
+}
+@mixin padding-right($var: $padding, $ratio: 2) {
+ padding-right: mp_vw($var);
+  @include max-width(800px) {
+    padding-right: mp_ratio_vw($var, $ratio);
+  }
+}
+@mixin padding-bottom($var: $padding, $ratio: 2) {
+  padding-bottom: mp_vw($var);
+  @include max-width(800px) {
+    padding-bottom: mp_ratio_vw($var, $ratio);
+  }
+}
+@mixin padding-left($var: $padding, $ratio: 2) {
+  padding-left: mp_vw($var);
+  @include max-width(800px) {
+    margin-left: mp_ratio_vw($var, $ratio);
+  }
+}
+
+//MARGIN
+@mixin margin($top: $padding, $right: $padding, $bottom: $padding, $left: $padding, $ratio: 2) {
+ margin: mp_vw($top) mp_vw($right) mp_vw($bottom) mp_vw($left);
+  @include max-width(800px) {
+    margin: mp_ratio_vw($top, $ratio) mp_ratio_vw($right, $ratio) mp_ratio_vw($bottom, $ratio) mp_ratio_vw($left, $ratio);
+  }
+}
+@mixin margin-top($var: $padding, $ratio: 2) {
+  margin-top: mp_vw($var);
+  @include max-width(800px) {
+    margin-top: mp_ratio_vw($var, $ratio);
+  }
+}
+@mixin margin-right($var: $padding, $ratio: 2) {
+ margin-right: mp_vw($var);
+  @include max-width(800px) {
+    margin-right: mp_ratio_vw($var, $ratio);
+  }
+}
+@mixin margin-bottom($var: $padding, $ratio: 2) {
+  margin-bottom: mp_vw($var);
+  @include max-width(800px) {
+    margin-bottom: mp_ratio_vw($var, $ratio);
+  }
+}
+@mixin margin-left($var: $padding, $ratio: 2) {
+  margin-left: mp_vw($var);
+  @include max-width(800px) {
+    margin-left: mp_ratio_vw($var, $ratio);
+  }
+}
